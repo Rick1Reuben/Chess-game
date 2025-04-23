@@ -1,0 +1,360 @@
+/* ChessStyles.css */
+html, body, #root {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.chess-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.chess-container.dark {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.controls select, .controls button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.controls button {
+    background-color: #eee;
+}
+
+.controls button:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+}
+
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.status {
+    margin-bottom: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.status > div {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.popup {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 18px;
+    text-align: center;
+    animation: popupGlow 1s infinite alternate;
+}
+
+@keyframes popupGlow {
+    from { box-shadow: 0 0 10px #fff; }
+    to { box-shadow: 0 0 20px #00faff; }
+}
+
+.chessboard-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 350px;
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 5px;
+    max-width: 600px;
+    max-height: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.square {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10vw / 8);
+    max-font-size: 75px;
+    transition: background-color 0.3s;
+}
+
+.square.light {
+    background-color: #f0d9b5;
+}
+
+.square.dark {
+    background-color: #b58863;
+}
+
+.move-history {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 400px;
+    overflow-y: auto;
+    max-height: 200px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.move-history h3 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.move-history ol {
+    padding-left: 20px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.move-history li {
+    margin-bottom: 5px;
+}
+
+.check-alert {
+    color: #d10000;
+    font-weight: bold;
+    animation: pulse 1s infinite, glow 1.5s ease-in-out infinite alternate;
+    margin: 10px 0;
+    font-size: 1.1em;
+    text-align: center;
+    background-color: rgba(209, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px red; }
+    100% { box-shadow: 0 0 20px red; }
+}
+
+.draw-offer {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.draw-offer button {
+    margin: 0 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.draw-offer button:first-child {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.draw-offer button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.clock-display {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.white-clock, .black-clock {
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.white-clock.active {
+    background-color: #f0d9b5;
+    box-shadow: 0 0 10px rgba(240, 217, 181, 0.7);
+}
+
+.black-clock.active {
+    background-color: #b58863;
+    color: white;
+    box-shadow: 0 0 10px rgba(181, 136, 99, 0.7);
+}
+
+.game-management {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.saved-games-list, .game-history-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.saved-game-item, .history-item {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.saved-game-item button {
+    margin-top: 8px;
+    padding: 5px 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .controls, .status, .chessboard-wrapper, .move-history {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls label, .controls select, .controls button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .status > div {
+        font-size: 14px;
+    }
+
+    .move-history {
+        margin-top: 15px;
+    }
+
+    .move-history h3 {
+        font-size: 16px;
+    }
+
+    .move-history ol {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,9 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100vh; /* To potentially help with vertical centering if needed */
+    justify-content: flex-start; /* Align items at the top initially */
+}
