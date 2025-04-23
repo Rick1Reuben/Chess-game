@@ -75,23 +75,23 @@ This project is a fully functional chess game built with a React frontend and a 
 
 ## Project Structure
 
-├── backend/
-│   ├── app.py          # Flask backend application
-│   ├── requirements.txt # Backend dependencies
-│   └── chess_games.db  # SQLite database (created upon first run)
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   └── ChessboardComponent.js # Main chessboard component
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   ├── ... (other frontend files)
-│   │   └── ChessStyles.css       # Custom CSS for the chessboard
-│   ├── package.json
-│   ├── yarn.lock
-├── README.md
-└── ... (other project files)
+    \```├── backend/
+        │   ├── app.py          # Flask backend application
+        │   ├── requirements.txt # Backend dependencies
+        │   └── chess_games.db  # SQLite database (created upon first run)
+        ├── frontend/
+        │   ├── public/
+        │   ├── src/
+        │   │   ├── components/
+        │   │   │   └── ChessboardComponent.js # Main chessboard component
+        │   │   ├── App.js
+        │   │   ├── index.js
+        │   │   ├── ... (other frontend files)
+        │   │   └── ChessStyles.css       # Custom CSS for the chessboard
+        │   ├── package.json
+        │   ├── yarn.lock
+        ├── README.md
+        └── ... (other project files)```\
 
 
 ## Usage
